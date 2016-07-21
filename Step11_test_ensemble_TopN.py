@@ -51,10 +51,6 @@ def get_ensemble_score(name):
     dtest = xgb.DMatrix(X_test)
     xgb_2_test = xgb_2.predict(dtest)
     list_all.append(xgb_2_test)
-    xgb_1 = xgb.Booster({'nthread': 4})  # init model
-    xgb_1.load_model(util.models_prefix + name + '_xgb1_prob.pkl')  # load data
-    dtest = xgb.DMatrix(X_test)
-    xgb_1_test = xgb_1.predict(dtest)
     # list_all.append(xgb_1_test)
     import copy
     [train_X, train_Y] = pd.read_pickle(util.features_prefix + name + '_XY.pkl')
